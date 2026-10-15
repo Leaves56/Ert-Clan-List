@@ -1,0 +1,17 @@
+{
+  "key.ertclanlist.open_menu": "Open Clan List Menu",
+  "key.category.ertclanlist.main": "ErtClanList",
+  "screen.ertclanlist.title": "Clan List",
+  "screen.ertclanlist.list_title": "Players in the list",
+  "screen.ertclanlist.input": "Player name",
+  "screen.ertclanlist.input_hint": "Player name...",
+  "screen.ertclanlist.add": "Add",
+  "screen.ertclanlist.list": "Show list",
+  "screen.ertclanlist.invalid": "Invalid name (3-16 letters, digits, _)",
+  "screen.ertclanlist.added": "%s added!",
+  "screen.ertclanlist.exists": "%s is already in the list",
+  "screen.ertclanlist.color_label": "Highlight color (hex, e.g. #FF8800):",
+  "screen.ertclanlist.color_apply": "Set color",
+  "screen.ertclanlist.color_invalid": "Invalid color! Use 6 hex digits",
+  "screen.ertclanlist.color_current": "Current color: %s"
+}
