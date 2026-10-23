@@ -85,9 +85,8 @@ public final class ClanListManager {
             // Y
             "YFsimo", "ylmz2023", "yosoycraftyt",
             // Z
-            "zirox_", "Zyphronix",
-            // Extras
-            "0xTariq", "__200ms", "1Ewecia_", "5toned_", "_Myxine"
+            "zirox_", "Zyphronix"
+
     );
 
     private static final int DEFAULT_COLOR = 0x55FF55;
