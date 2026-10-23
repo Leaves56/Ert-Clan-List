@@ -19,10 +19,78 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public final class ClanListManager {
-    //names go here!
-    private static final List<String> CODE_NAMES = List.of();
+    // >>> Names added in code go here <<<
+    private static final List<String> CODE_NAMES = List.of(
+            // A
+            "ABIBRO", "adilisole", "Airforce", "Ahmedamage", "aksu2", "Angeloqt",
+            "AaradhyaProBro", "areyou", "Assasin_String", "Asze1556", "awa_nb",
+            "Axolote_boy", "Anam_ji",
+            // B
+            "Ballman69", "blaze9", "boviii", "Bread_", "Bunnyxzy",
+            // C
+            "cagri_0", "caliberc12345342", "CameronKai_", "ChaosCrusher", "chickenooge",
+            "CG_PRIMES", "ConradIsDUmb", "CriticoFiscal_23",
+            // D
+            "DoubleTree", "daijin_ryz", "DanielXmiL", "DemilXGod", "Devilbhaiya5566",
+            "dhruvisdream", "D1im", "Dkiller004", "Dpmo", "Dracogamer5678", "dwerpy440",
+            // E
+            "EBK007", "EmeraldNova520", "exabyte", "EvilStar", "exploded",
+            // F
+            "FemaleKnight", "fxddup", "Frostbang",
+            // G
+            "Goliver22", "Galaxyfan", "GenesisLB12", "Genteel_RebesX5", "GGboi2000",
+            // H
+            "Hasnain176_", "hasyyTheGoat", "Higoshi", "HITPVPP", "hotiv",
+            "herobrine998877", "hrishabh_warrior",
+            // I
+            "Insight_World", "Isabelle_", "isimyokki", "Its_Aza09", "itsProBix",
+            "ItzRynzoGOAT", "Invictus_Fish", "Izuna_Uchiha140",
+            // J
+            "John_Cena5876",
+            // K
+            "KARASTAR95A", "KD_GAMER_83", "Kinaicsaszar", "Kivren", "Klorna_Fa",
+            // L
+            "LtraDude", "Leaves56_", "lil_lion0110", "Lord479", "LorD_AUysh123",
+            "Lowlife", "Lqlac_", "Ltx1w", "Lostbylife", "LynxBear_",
+            // M
+            "Magma_Ranger", "Manas", "Mander", "MarcusIndigo", "ME_UKR7", "Mimaklima007",
+            "Mingling", "ming13285", "mirkoprofesi", "mixer567", "Mqstics", "MineMaster102",
+            "mohamedamin2048", "Mohib8c",
+            // N
+            "nathanlabz", "NotRare123", "NotXufflux", "Nowace", "Nor",
+            // O
+            "ODAyal", "ocommon", "oCxlpped", "OmarPastaLatas", "Olympia", "onepiece22", "Owl",
+            // P
+            "P3W_", "palasam", "PapaLowlife", "ParaMgaming07", "Peitoxz", "Pixo_xD",
+            "piyushindian", "Proximity101", "PuruBhai12",
+            // Q
+            "Quite_one",
+            // R
+            "ramu123", "Reachh_", "Regalll", "rizze_", "Roco_Spea", "ROYALWHITE444",
+            "RoshanTiwari", "RubyDaCherry00",
+            // S
+            "Sahann1", "SaudyaGamer", "Serjali", "ShafayGOAT", "shake3b", "shadowofightz",
+            "ShadowEmblem", "Slexzx", "soham_hehe", "Spy16", "SS_34", "strqm", "Stret_MD",
+            "StretMD", "StrykingMaterial", "Subbiplays", "SubZero2807",
+            // T
+            "Terror_Rox", "thatskibidimatt", "Thegreatboi", "TheIronGystum007", "thvamo08",
+            "thunder9795", "Tobi___YT", "Tomioka_giyu69", "toji_fr", "therushingdragon",
+            // U
+            "u_could",
+            // V
+            "vikbhy89", "Viaanpromax", "Vaelqorx", "Velphinx_", "Ventakura", "Vesynn",
+            "VibeJoy49", "vxrioq",
+            // X
+            "XBeasTTyX", "Xi3moreeeX", "XMishere", "XxBossGamerxX", "XxLuffySanxX",
+            // Y
+            "YFsimo", "ylmz2023", "yosoycraftyt",
+            // Z
+            "zirox_", "Zyphronix",
+            // Extras
+            "0xTariq", "__200ms", "1Ewecia_", "5toned_", "_Myxine"
+    );
 
-    private static final int DEFAULT_COLOR = 0x55FF55; // green
+    private static final int DEFAULT_COLOR = 0x55FF55;
 
     private static final Pattern VALID_NAME = Pattern.compile("^[A-Za-z0-9_]{3,16}$");
     private static final Pattern VALID_HEX = Pattern.compile("^#?[0-9A-Fa-f]{6}$");
@@ -54,7 +122,7 @@ public final class ClanListManager {
             try (Reader reader = Files.newBufferedReader(path)) {
                 JsonElement root = JsonParser.parseReader(reader);
                 if (root.isJsonArray()) {
-                    // old format: just a list of names
+
                     for (JsonElement element : root.getAsJsonArray()) {
                         String name = element.getAsString();
                         NAMES.put(name.toLowerCase(Locale.ROOT), name);
@@ -75,7 +143,7 @@ public final class ClanListManager {
             }
         }
 
-        // names from the code are always added
+
         boolean changed = !fileExists;
         for (String name : CODE_NAMES) {
             if (NAMES.putIfAbsent(name.toLowerCase(Locale.ROOT), name) == null) {
@@ -100,7 +168,6 @@ public final class ClanListManager {
     }
 
 
-
     public static boolean isValidName(String name) {
         return name != null && VALID_NAME.matcher(name).matches();
     }
@@ -109,7 +176,6 @@ public final class ClanListManager {
         return NAMES.containsKey(name.toLowerCase(Locale.ROOT));
     }
 
-    /** @return true if added, false if it was already in the list */
     public static synchronized boolean add(String name) {
         String key = name.toLowerCase(Locale.ROOT);
         if (NAMES.containsKey(key)) return false;
@@ -127,7 +193,6 @@ public final class ClanListManager {
     public static synchronized List<String> getAll() {
         return new ArrayList<>(NAMES.values());
     }
-
 
 
     public static boolean isValidHex(String text) {
@@ -148,7 +213,7 @@ public final class ClanListManager {
         return String.format("#%06X", color);
     }
 
-
+    /** @return true if the text was a valid hex color and was applied */
     public static synchronized boolean setColorFromHex(String text) {
         if (!isValidHex(text)) return false;
         color = parseHex(text);
