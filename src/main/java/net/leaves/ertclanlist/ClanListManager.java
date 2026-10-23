@@ -19,7 +19,6 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 public final class ClanListManager {
-    // >>> Names added in code go here <<<
     private static final List<String> CODE_NAMES = List.of(
             // A
             "ABIBRO", "adilisole", "Airforce", "Ahmedamage", "aksu2", "Angeloqt",
@@ -99,7 +98,6 @@ public final class ClanListManager {
     private static final Map<String, String> NAMES = new LinkedHashMap<>();
     private static int color = DEFAULT_COLOR;
 
-    /** What gets written to the JSON file. */
     private static class SaveData {
         String color;
         List<String> players;
@@ -212,7 +210,6 @@ public final class ClanListManager {
         return String.format("#%06X", color);
     }
 
-    /** @return true if the text was a valid hex color and was applied */
     public static synchronized boolean setColorFromHex(String text) {
         if (!isValidHex(text)) return false;
         color = parseHex(text);
